@@ -38,7 +38,7 @@ namespace SuperBubble
         }
 
         /// <summary>
-        /// Implementation basique d'un tri bulle
+        /// Basic (naive) example of implementation of Bubblesort
         /// </summary>
         /// <param name="args"></param>
         static void Main(string[] args)
@@ -55,7 +55,8 @@ namespace SuperBubble
         }
 
         /// <summary>
-        /// Effectue le tri bulle du tableau reçu en paramètre
+        /// Will sort the array given as parameter with the bubblesort algorithm
+        /// complexity O(n^2), stable.
         /// </summary>
         /// <param name="tab"></param>
         private static void TriTableau(int[] tab)
