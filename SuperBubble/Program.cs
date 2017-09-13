@@ -15,6 +15,10 @@ namespace SuperBubble
 
     class Program
     {
+        /// <summary>
+        /// Fills the array given as parameter with random values
+        /// </summary>
+        /// <param name="tab"></param>
         static void initTableau(int[] tab)
         {
             Random rnd = new Random();
@@ -22,9 +26,14 @@ namespace SuperBubble
                 tab[i] = rnd.Next(0, 10000);
         }
 
-        static void DisplayTableau(int[] tab)
+        /// <summary>
+        /// Displays the first elements of the int array
+        /// </summary>
+        /// <param name="tab">Array with integer values</param>
+        /// <param name="iMax">the last index to be displayed</param>
+        static void DisplayTableau(int[] tab, int iMax)
         {
-            for (int i = 1 ; i < 16; i++)
+            for (int i = 0 ; i < iMax; i++)
                 Console.Write($" {tab[i]}");
         }
 
@@ -33,9 +42,14 @@ namespace SuperBubble
             Console.WriteLine("Bonjour, voici un super BubbleSort\n");
             int[] tab = new int[1024];
             initTableau(tab);
-            DisplayTableau(tab);
-
+            DisplayTableau(tab, 16);
+            //TriTableau(tab);
             Console.ReadKey();
+        }
+
+        private static void TriTableau(int[] tab)
+        {
+            throw new NotImplementedException();
         }
     }
 }
