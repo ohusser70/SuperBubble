@@ -13,13 +13,13 @@ using System.Threading.Tasks;
 namespace SuperBubble
 {
 
-    class Program
+    public class Program
     {
         /// <summary>
         /// Fills the array given as parameter with random values
         /// </summary>
         /// <param name="tab"></param>
-        static void initTableau(int[] tab)
+        static public void initTableau(int[] tab)
         {
             Random rnd = new Random();
             for (int i = 0; i < tab.Length; i++)
@@ -59,21 +59,26 @@ namespace SuperBubble
         /// complexity O(n^2), stable.
         /// </summary>
         /// <param name="tab"></param>
-        private static void TriTableau(int[] tab)
+        public static void TriTableau(int[] tab)
         {
             // remonte un élément à chaque fois
             for (int i=0; i< tab.Length;i++)
             {
                 for (int j=tab.Length-1; j > 0;j--)
-                {
-                    if (tab[j]<tab[j-1])
+                //for (int j =  1; j <= tab.Length; j++)
                     {
-                        int temp = tab[j];
-                        tab[j] = tab[j - 1];
-                        tab[j-1] = temp;
-                    }
+                    if (tab[j] < tab[j - 1])
+                        Exchange(ref tab[j], ref tab[j - 1]);
                 }
             }
         }
+
+        public static void Exchange(ref int A, ref int B)
+        {
+            int temp = A;
+            A = B;
+            B = temp;
+        }
+
     }
 }
