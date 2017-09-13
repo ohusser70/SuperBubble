@@ -23,7 +23,7 @@ namespace SuperBubble
         {
             Random rnd = new Random();
             for (int i = 0; i < tab.Length; i++)
-                tab[i] = rnd.Next(0, 10000);
+                tab[i] = rnd.Next(0, 1000);
         }
 
         /// <summary>
@@ -37,19 +37,42 @@ namespace SuperBubble
                 Console.Write($" {tab[i]}");
         }
 
+        /// <summary>
+        /// Implementation basique d'un tri bulle
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             Console.WriteLine("Bonjour, voici un super BubbleSort\n");
-            int[] tab = new int[1024];
+            int[] tab = new int[16];
             initTableau(tab);
+            Console.WriteLine("\nAvant le tri: ");
             DisplayTableau(tab, 16);
-            //TriTableau(tab);
+            TriTableau(tab);
+            Console.WriteLine("\nAPRES le tri: ");
+            DisplayTableau(tab, 16);
             Console.ReadKey();
         }
 
+        /// <summary>
+        /// Effectue le tri bulle du tableau reçu en paramètre
+        /// </summary>
+        /// <param name="tab"></param>
         private static void TriTableau(int[] tab)
         {
-            throw new NotImplementedException();
+            // remonte un élément à chaque fois
+            for (int i=0; i< tab.Length;i++)
+            {
+                for (int j=tab.Length-1; j > 0;j--)
+                {
+                    if (tab[j]<tab[j-1])
+                    {
+                        int temp = tab[j];
+                        tab[j] = tab[j - 1];
+                        tab[j-1] = temp;
+                    }
+                }
+            }
         }
     }
 }
