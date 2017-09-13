@@ -24,7 +24,7 @@ namespace SuperBubble
 
         static void DisplayTableau(int[] tab)
         {
-            for (int i = 0; i < 16; i++)
+            for (int i = 1 ; i < 16; i++)
                 Console.Write($" {tab[i]}");
         }
 
