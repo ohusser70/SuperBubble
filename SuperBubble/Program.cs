@@ -43,14 +43,16 @@ namespace SuperBubble
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            Console.WriteLine("Bonjour, voici un super BubbleSort\n");
-            int[] tab = new int[16];
+            Console.WriteLine("Hello, this is the awesome BubbleSort\n");
+            Console.WriteLine("Please give the size of array: ");
+            int size = System.Convert.ToInt32(Console.ReadLine());
+            int[] tab = new int[size];
             initTableau(tab);
             Console.WriteLine("\nAvant le tri: ");
-            DisplayTableau(tab, 16);
+            DisplayTableau(tab, size);
             TriTableau(tab);
             Console.WriteLine("\nAPRES le tri: ");
-            DisplayTableau(tab, 16);
+            DisplayTableau(tab, size);
             Console.ReadKey();
         }
 
@@ -67,7 +69,7 @@ namespace SuperBubble
                 for (int j=tab.Length-1; j > 0;j--)
                 //for (int j =  1; j <= tab.Length; j++)
                     {
-                    if (tab[j] < tab[j - 1])
+                    if (tab[j] < tab[j -1])
                         Exchange(ref tab[j], ref tab[j - 1]);
                 }
             }
