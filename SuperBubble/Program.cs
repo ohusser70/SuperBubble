@@ -60,17 +60,17 @@ namespace SuperBubble
         /// Will sort the array given as parameter with the bubblesort algorithm
         /// complexity O(n^2), stable.
         /// </summary>
-        /// <param name="tab"></param>
-        public static void TriTableau(int[] tab)
+        /// <param name="Tab"></param>
+        public static void TriTableau(int[] Tab)
         {
             // remonte un élément à chaque fois
-            for (int i=0; i< tab.Length;i++)
+            for (int i=0; i< Tab.Length;i++)
             {
-                for (int j=tab.Length-1; j > 0;j--)
+                for (int j=Tab.Length-1; j > i;j--) // optimized
                 //for (int j =  1; j <= tab.Length; j++)
                     {
-                    if (tab[j] < tab[j -1])
-                        Exchange(ref tab[j], ref tab[j - 1]);
+                    if (Tab[j] < Tab[j -1])
+                        Exchange(ref Tab[j], ref Tab[j - 1]);
                 }
             }
         }
