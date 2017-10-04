@@ -21,15 +21,33 @@ namespace SuperBubble.Tests
         }
 
         [TestMethod()]
-        public void TriTableauTest()
+        public void BubbleSortTest()
         {
             int[] testArray = new int[32];
             SuperBubble.Program.initTableau(testArray);
             bool sorted = true;
-            SuperBubble.Program.TriTableau(testArray);
-            for (int i=1;i< testArray.Length;i++)
+            SuperBubble.Program.BubbleSort(testArray);
+            for (int i = 1; i < testArray.Length; i++)
             {
-                if (testArray[i]<testArray[i-1])
+                if (testArray[i] < testArray[i - 1])
+                {
+                    sorted = false;
+                    i = testArray.Length;   // end the for loop (while would be nicer)
+                }
+            }
+            Assert.IsTrue(sorted);
+        }
+
+        [TestMethod()]
+        public void InsertionSortTest()
+        {
+            int[] testArray = new int[32];
+            SuperBubble.Program.initTableau(testArray);
+            bool sorted = true;
+            SuperBubble.Program.InsertionSort(testArray);
+            for (int i = 1; i < testArray.Length; i++)
+            {
+                if (testArray[i] < testArray[i - 1])
                 {
                     sorted = false;
                     i = testArray.Length;   // end the for loop (while would be nicer)
