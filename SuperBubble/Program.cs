@@ -50,15 +50,21 @@ namespace SuperBubble
             Console.WriteLine("Please give the size of array: ");
             int size = System.Convert.ToInt32(Console.ReadLine());
             int[] tab = new int[size];
-            initTableau(tab);
-            Console.WriteLine("\nAvant le tri: ");
-            DisplayTableau(tab, 10);
-            chrono.Start();
-            InsertionSort(tab);//BubbleSort(tab);
-            chrono.Stop();
-            Console.WriteLine($"\nAPRES le tri ({chrono.ElapsedMilliseconds}ms)  : ");
-            DisplayTableau(tab, 10);
-            Console.ReadKey();
+            for (int i = 0; i < 10; i++)
+            {
+                initTableau(tab);
+                Console.WriteLine("\nAvant le tri: ");
+                DisplayTableau(tab, 10);
+                chrono.Start();
+                InsertionSort(tab);
+                //BubbleSort(tab);
+                chrono.Stop();
+                Console.WriteLine($"\nAPRES le tri ({chrono.ElapsedMilliseconds}ms)  : ");
+                chrono.Reset();
+                DisplayTableau(tab, 10);
+                Console.WriteLine("");
+            }
+            //Console.ReadKey();
         }
 
         /// <summary>
@@ -105,7 +111,7 @@ namespace SuperBubble
         {
             int temp = A;
             A = B;
-            B = temp;
+            //B = temp;
         }
 
     }
